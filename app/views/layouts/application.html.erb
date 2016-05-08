@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
@@ -14,18 +15,18 @@
         <%= link_to root_path, class: 'logo' do %>
           <div class="circle">
             <br />
-            You know
+            read a
             <br />
-            you need
+            mf'ing
             <br />
-            to code
+            book
           </div>
         <% end %>
       </div>
-      <div class="col-sm-4 hidden-xs slogan">
-        Splurting out unsolicited advice about entrepreneurship since 2016
+      <div class="col-sm-5 hidden-xs slogan">
+        Splurting out unsolicited book recs since ye olde 2016
       </div>
-      <div class="col-xs-8 col-xs-offset-1 col-sm-offset-0 col-sm-5 links">
+      <div class="col-xs-8 col-xs-offset-1 col-sm-offset-0 col-sm-4 links">
         <!-- Button trigger modal -->
         <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
         &nbsp;&nbsp;
@@ -44,7 +45,9 @@
       </div>
       <%= simple_form_for Quote.new do |f| %>
         <div class="modal-body">
-          <%= f.input :saying, label: "Provide a short quote or exerpt from the book.", placeholder: "Sing away sorrow, cast away care." %>
+          <%= f.input :saying, label: "Provide a short quote or exerpt.", placeholder: "Sing away sorrow, cast away care." %>
+          <br />
+          <%= f.input :title, label: "What's the title of the book?", placeholder: "Don Quixote" %>
           <br />
           <%= f.input :author, label: "Who is the author?", placeholder: "Miguel de Cervantes" %>
         </div>
@@ -62,7 +65,7 @@
 
   <br class="clear" />
 
-<div class= "container">
+<div class= "container central">
   <% if flash[:error].present? %>
     <div class="col-xs-10 col-xs-offset-1 alert alert-danger">
       <%= flash[:error].html_safe %>
@@ -75,7 +78,7 @@
 <div class="footer">
   <div class="container">
   <div class="col-xs-12 col-sm-6">
-    <%= link_to "This isn't enough, I need more", root_path, class: 'next-quote' %>
+    <%= link_to "Not that book, give me another.", root_path, class: 'next-quote' %>
   </div>
   <div class="col-xs-12 col-sm-6 footer-blurb">
     what kind of verb is splurt anyway<br/>
